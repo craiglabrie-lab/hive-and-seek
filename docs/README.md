@@ -8,6 +8,8 @@
 | How do the two systems connect? | [Architecture](architecture/overview.md) |
 | How do agents cooperate? | [Coordination protocol](architecture/coordination.md) |
 | How is agent execution and spending bounded? | [Resource governor](architecture/resource-governor.md) |
+| How are stronger and inexpensive models assigned? | [Model hierarchy and routing](architecture/model-routing.md) |
+| How many workers should execute? | [Worker-scaling evaluation](../evaluation/worker-scaling.md) |
 | What data may be used or shared? | [Privacy and permissions](architecture/privacy-and-permissions.md) |
 | What technology has been chosen? | [Technology options](architecture/technology-options.md) |
 | What is decided or still open? | [Decision index](decisions/README.md) |

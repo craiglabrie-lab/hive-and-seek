@@ -20,4 +20,6 @@ These nine distinct agents are the baseline for the guided pilot and future impl
 
 All roles follow the [coordination protocol](../docs/architecture/coordination.md), use [handoffs](../templates/agent-handoff.md), and respect [privacy boundaries](../docs/architecture/privacy-and-permissions.md). All personal records live privately.
 
+The [model hierarchy](../docs/architecture/model-routing.md) assigns frontier-capability central orchestration and inexpensive, task-qualified models for routine work under the other eight contracts. A specialist may escalate a material reasoning issue without changing its role. Executing worker counts are selected only after [scaling evaluation](../evaluation/worker-scaling.md); the nine-role roster and governor ceilings do not prescribe how many workers should run.
+
 The [development role map](development/roles.md) is separate: those roles build this product rather than perform the user's job search.

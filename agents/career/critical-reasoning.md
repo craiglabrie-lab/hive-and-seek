@@ -13,3 +13,5 @@
 **Quality checks:** Critiques cite evidence or a specific missing input; label whether critique was simulated in the same conversation or produced by an independently executing role. Never imply independence that did not exist.
 
 **Handoff:** Return prioritized material issues and their disposition. The orchestrator retains unresolved dissent in the user packet.
+
+**Model routing:** The [hierarchy](../../docs/architecture/model-routing.md) uses an inexpensive qualified model for the initial assessment and permits bounded frontier-tier escalation of material reasoning disputes. Retain this distinct review role and context even if the model also serves orchestration. Report actual independence and model/version; escalation does not supply missing evidence, create approval, or reset budgets and review limits.

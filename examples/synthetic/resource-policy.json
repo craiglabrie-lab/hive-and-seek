@@ -1,7 +1,9 @@
 {
-  "policy_id": "conceptual-pilot-v0.1",
+  "policy_id": "conceptual-pilot-v0.2",
   "status": "illustrative_not_active",
   "scope": "root_workflow_and_all_descendants",
+  "model_routing_policy_reference": "model-routing-policy.json",
+  "worker_target_selection": "measured_envelope_within_total_execution_ceiling",
   "allowed_agent_roles": [
     "career-ontology",
     "job-market-intelligence",

@@ -2,7 +2,7 @@
 
 **Your career. Your logic. Your swarm.**
 
-Hive & Seek is an **Ontology-Driven Multi-Agent System (OD-MAS)** for career intelligence and job searching. Its design brings together nine specialist agents, a shared career knowledge model, and an explicit record of the reasons behind decisions.
+Hive & Seek is an **Ontology-Driven Multi-Agent System (OD-MAS)** for career intelligence and job searching. Its design brings together nine agent roles, a shared career knowledge model, and an explicit record of the reasons behind decisions. The execution architecture uses frontier-capability central orchestration with inexpensive qualified workers, and selects worker counts from measured benefit.
 
 The goal is to help a person find opportunities that fit both their demonstrated capabilities and the work they actually want to do. Recommendations should explain the evidence, identify gaps, challenge weak assumptions, and preserve what was learned for the next decision.
 
@@ -15,6 +15,7 @@ The goal is to help a person find opportunities that fit both their demonstrated
 - [What ontology-driven means](#what-ontology-driven-means)
 - [The nine agents](#the-nine-agents)
 - [How the agents work together](#how-the-agents-work-together)
+- [Model hierarchy and measured worker scaling](#model-hierarchy-and-measured-worker-scaling)
 - [Execution throttle and efficiency](#execution-throttle-and-efficiency)
 - [The career workflow](#the-career-workflow)
 - [An example decision](#an-example-decision)
@@ -160,6 +161,26 @@ Critical review should form an initial view from the question, criteria, and evi
 
 See the [coordination protocol](docs/architecture/coordination.md) and [handoff template](templates/agent-handoff.md) for the detailed contract.
 
+## Model hierarchy and measured worker scaling
+
+The architecture prioritizes **a capable central orchestrator and inexpensive task-qualified workers**. It does not select a large worker count in advance. The intended economic advantage must be demonstrated through complete workflow measurements.
+
+| Work | Intended model tier | Boundary |
+| --- | --- | --- |
+| Career Orchestrator: planning, routing, conflict resolution, synthesis | Frontier-capability | Central coordination remains one distinct role; exact model/provider is unselected |
+| Routine work under the other eight agent contracts | Inexpensive qualified models | Each role keeps its evidence, output, tool, privacy, and approval requirements |
+| Material specialist reasoning conflicts or failed quality checks | Targeted frontier-capability escalation | Retain specialist ownership, separate critique, and the same root budget/attempt limits |
+
+A stronger model cannot manufacture missing career evidence, confirm a preference, or grant permission to send a message. Such gaps remain explicit. Economy models must be qualified for their task; a low price alone is not enough. Critical review is a separate responsibility even when multiple roles share a model.
+
+**Nine roles, model tiers, and worker concurrency are separate choices.** A role can have several registered instances handling independent tasks without adding a new agent type. Conversely, all nine roles can be represented while only one specialist executes at a time. Frontier-escalated specialists count as workers, and active orchestration counts against the governor's total execution ceiling.
+
+Before choosing production capacity, compare a one-worker serial benchmark with additional workers on the same workload, models, evidence, and quality criteria. Measure elapsed time and total cost, including frontier planning/synthesis, worker tokens, repeated context, tools, retries, escalation, review, and consolidation. Report failed and incomplete work too. Faster parallel execution does not automatically mean a lower API bill.
+
+Select the smallest tested configuration meeting declared quality, cost, and latency objectives. Scale only within a measured, policy-authorized envelope when ready independent work exists. A safety ceiling is not an optimal worker count. The production target remains unset until qualifying evidence exists, and no worker-scaling trials have run.
+
+See the [model-routing specification](docs/architecture/model-routing.md), [non-executable routing example](examples/synthetic/model-routing-policy.json), [worker-scaling evaluation](evaluation/worker-scaling.md), [experiment record](templates/scaling-experiment.md), and [architecture decision](docs/decisions/0005-model-hierarchy-and-measured-scaling.md). No provider, model ID, price, or production worker count is selected by these documents.
+
 ## Execution throttle and efficiency
 
 The proposed **resource governor** puts bounds around the career workflow. The Career Orchestrator selects relevant work; the governor determines whether it may execute within the selected capacity, call, token, monetary, retry, review, and time allowances.
@@ -176,7 +197,7 @@ This is a runtime component, **not a tenth agent**. All nine agents remain avail
 | Time limits | 90 seconds per call; 300 per task; 900 accumulated workflow execution seconds | Bound stalled work and preserve elapsed time across resumes |
 | Monetary budget | Must be selected with currency and a pricing basis | Reserve known model/tool costs; do not treat unknown usage as free |
 
-These numbers are **illustrative proposals, not active defaults or measured optimal values**. The [reference policy](examples/synthetic/resource-policy.json) is non-executable example data with monetary settings intentionally unset. The current repository contains no throttle implementation.
+These numbers are **illustrative proposals, not active defaults or measured optimal values**. In particular, the three-instance ceiling does not select a production specialist-worker count; any measured worker target must also leave room for active orchestration within that total. The [reference policy](examples/synthetic/resource-policy.json) is non-executable example data with monetary settings intentionally unset. The current repository contains no throttle implementation.
 
 The governor uses one durable ledger for the root workflow and all descendants. Before dispatch, it must atomically reserve conservative usage estimates against consumed resources and outstanding reservations. This prevents simultaneous agents from each spending the same remaining budget. Resume and retry retain counters rather than creating new allowances.
 
@@ -303,6 +324,7 @@ The project should be judged by useful decisions and outcomes, including the eff
 | Constraint handling | Known violations, unresolved conditions, and inappropriate overrides |
 | Effort | User time, elapsed time, and repeated explanation |
 | Coordination | Duplicate tasks, avoidable retries, and material value of critique |
+| Model hierarchy and scaling | Tier/model usage, frontier supervision and escalation overhead, quality-qualified cost per accepted packet, and marginal benefit of added workers on comparable workloads |
 | Resource governance | Peak concurrency, total model/tool attempts, reservations and reconciled usage, limit events, no-progress stops, and partial-work status |
 | Cost | Measured or explicitly estimated model/tool usage with a dated pricing basis |
 | Search outcomes | Applications, interviews, offers, observation windows, and pending outcomes |
@@ -357,6 +379,7 @@ No delivery dates, cloud platform, model provider, agent framework, graph databa
 | Inspect the nine roles | [Agent catalogue](agents/README.md) |
 | Design handoffs and shared-state updates | [Coordination protocol](docs/architecture/coordination.md) |
 | Understand execution limits and spending controls | [Resource governor](docs/architecture/resource-governor.md), [reference policy](examples/synthetic/resource-policy.json), and [budget record](templates/resource-budget.md) |
+| Understand model tiers and worker-count decisions | [Model hierarchy](docs/architecture/model-routing.md), [scaling evaluation](evaluation/worker-scaling.md), and [experiment record](templates/scaling-experiment.md) |
 | Review the technical direction | [Architecture blueprint](docs/architecture/overview.md) and [technology options](docs/architecture/technology-options.md) |
 | Plan development with AI-DLC | [Adoption plan](workflows/development/ai-dlc-adoption.md) and [development artifacts](aidlc-docs/README.md) |
 | Review intended behavior and evaluation coverage | [Requirements](aidlc-docs/inception/requirements.md), [traceability](aidlc-docs/inception/traceability.md), and [acceptance scenarios](evaluation/acceptance-scenarios.md) |
@@ -377,6 +400,10 @@ Yes. All nine have distinct contracts and remain the architecture baseline. An a
 ### Does an ontology require a graph database?
 
 The first pilot can use private, versioned Markdown and CSV records with explicit concepts and relationships. Formal schemas, databases, graph representations, or retrieval infrastructure can be selected later if a demonstrated requirement justifies them.
+
+### Does every agent use a frontier model, and how many workers will run?
+
+The intended hierarchy uses a frontier-capability model for central orchestration and inexpensive qualified models for routine workers, with bounded specialist escalation. Model identities and the production worker count remain unselected. Worker capacity must be justified by comparable measurements of quality, total cost, and useful latency within the governor's ceilings. The one-worker serial benchmark is a comparison baseline, not an asserted production optimum.
 
 ### What prevents too many agents or excessive spending?
 

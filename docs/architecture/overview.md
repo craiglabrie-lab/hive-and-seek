@@ -31,6 +31,12 @@ The [resource governor](resource-governor.md) is a proposed runtime component al
 
 The orchestrator chooses relevant work, while the governor queues or blocks execution that exceeds policy. On exhaustion, stop new dispatch, reconcile in-flight operations, and preserve a partial checkpoint. Required critique, career constraints, privacy, and approval boundaries remain intact. Policy numbers are illustrative and no enforcement code exists yet.
 
+## Model hierarchy and measured capacity
+
+The [model-routing architecture](model-routing.md) uses frontier-capability central orchestration and inexpensive, task-qualified routine workers, with targeted escalation for difficult specialist reasoning. The hierarchy is an accepted design direction; exact models/providers and running integrations remain unselected. All nine role contracts remain separate.
+
+Select the number of simultaneously executing specialists only after [comparable scaling trials](../../evaluation/worker-scaling.md) demonstrate useful benefit within quality, cost, and latency objectives. A one-worker serial benchmark is a comparison baseline; neither it nor the governor's illustrative capacity ceiling is a production optimum. Orchestration, escalation, and consolidation all contribute to shared cost and capacity.
+
 ## Knowledge and state
 
 | Store | Contents | Write authority |
@@ -40,6 +46,8 @@ The orchestrator chooses relevant work, while the governor queues or blocks exec
 | Ontology snapshot | Approved concepts, relationships, rules, version | Controlled change process through ontology role |
 | Decision history | Choices, reasons, alternatives, revisions | Append new decisions and superseding records |
 | Task ledger | Task IDs, ownership, snapshot, status, artifacts, budget | Orchestrator |
+| Model/routing registry | Qualified tier/model/version, task/tool/data authorization, price basis, route and escalation decisions | Approved operating policy; orchestrator selects permitted routes |
+| Scaling evidence | Comparable workload/model/policy versions, trial results, selected worker target/envelope and rationale | Evaluator records actual results; policy authorizes production envelope |
 | Resource ledger | Root workflow/policy version, admission decisions, counters, reservations, actual or unknown usage, stop/resume events | Future runtime governor; agents cannot rewrite allowances |
 | Output workspace | Drafts, fit reports, reviews | Assigned role, versioned |
 | Approval and outcome records | Exact action/payload approval and observed results | User authorizes; coordinator records evidence |

@@ -23,3 +23,6 @@ All scenario IDs refer to [acceptance scenarios](../../evaluation/acceptance-sce
 | HS-018 | [Governor admission/accounting](../../docs/architecture/resource-governor.md), [budget record](../../templates/resource-budget.md) | EV-18, EV-19, EV-21, EV-24 |
 | HS-019 | [Governor recovery](../../docs/architecture/resource-governor.md), [coordination](../../docs/architecture/coordination.md) | EV-19, EV-20, EV-21, EV-23 |
 | HS-020 | [Governor efficiency rules](../../docs/architecture/resource-governor.md), [handoff](../../templates/agent-handoff.md), [scorecard](../../evaluation/scorecard.md) | EV-20, EV-22, EV-23 |
+| HS-021 | [Model hierarchy](../../docs/architecture/model-routing.md), [routing example](../../examples/synthetic/model-routing-policy.json) | EV-25, EV-29 |
+| HS-022 | [Escalation](../../docs/architecture/model-routing.md), [governor](../../docs/architecture/resource-governor.md), [handoff](../../templates/agent-handoff.md) | EV-26, EV-28, EV-30 |
+| HS-023 | [Scaling protocol](../../evaluation/worker-scaling.md), [experiment record](../../templates/scaling-experiment.md), [scorecard](../../evaluation/scorecard.md) | EV-27, EV-28, EV-29, EV-30 |

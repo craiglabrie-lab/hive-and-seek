@@ -2,9 +2,13 @@
 
 Status: open; this table compares design options rather than selecting products.
 
+Accepted architecture direction: [frontier-capability orchestration with inexpensive qualified workers](model-routing.md), plus production worker counts selected from measured benefit. This chooses a routing philosophy, not providers, model IDs, prices, or an optimal worker count.
+
 | Concern | Simplest pilot | Possible later option | Decision trigger |
 | --- | --- | --- | --- |
 | Role execution | One LLM conversation with explicit roles | API orchestration or agent framework | Need for durable, separately executing tasks |
+| Model routing | Clearly labeled single-model simulation | Frontier orchestration, qualified economy workers, bounded frontier escalation | Tier/model evaluation, authorized data/tool access, and known prices |
+| Specialist concurrency | One-worker serial benchmark, production target unset | Workload-specific validated worker envelope within governor ceilings | Repeated comparable trials meet declared quality/cost/latency objectives |
 | Knowledge storage | Versioned private Markdown and CSV records | Structured database; graph representation if needed | Proven retrieval, relationship, or concurrency limitations |
 | Ontology representation | Human-readable entity and relation model | JSON Schema, RDF/OWL, or graph schema | Interoperability or validation requirement |
 | Market research | User-supplied listing or authorized browsing | Approved job-data integration | Demonstrated freshness/volume need and access rights |

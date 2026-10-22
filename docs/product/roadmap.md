@@ -14,4 +14,6 @@ No delivery dates, budget, or platform commitments have been made.
 
 M1 and M2 can be performed manually in an LLM; they do not require a new application. Actual external job research depends on available tools. No stage is complete merely because its template exists.
 
+The [accepted model-hierarchy direction](../architecture/model-routing.md) uses frontier-capability central orchestration and inexpensive qualified routine workers. Select actual models, routing permissions/prices, and evaluation criteria during implementation design. Measure serial and candidate parallel workflows before selecting production worker counts; persistent execution must remain inside the validated envelope and governor ceilings. A single-model manual pilot is labeled as simulation, not a deployed tiered runtime.
+
 Preserve the original nine distinct agents through the guided pilot and implementation. Invoke only relevant agents for a task and reduce duplicate work through clear contracts. Any proposal to add, merge, or remove agents requires evidence, documented tradeoffs, and an explicit architecture decision approved by the project owner.

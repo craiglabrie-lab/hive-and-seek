@@ -5,6 +5,9 @@
 - Task ID / attempt:
 - Root workflow ID / resource-policy version / shared budget-ledger reference:
 - Owner / role:
+- Model tier / provider / exact model/version / routing-policy version / route qualification reference:
+- Route reason and material uncertainty; missing evidence or permission, if any:
+- Validated worker target/envelope / scaling-evidence reference / total governor ceiling:
 - Objective and completion condition:
 - Dependencies and duplicate-work check:
 - Ontology snapshot / evidence input versions:
@@ -24,6 +27,8 @@
 - Quality checks actually performed:
 - Artifacts produced with versions:
 - Usage/cost measured, or unavailable:
+- Usage/cost by actual model route, including orchestration, escalation, retries, and review:
+- Escalation trigger / original and new routes / retained task-role and attempt/revision lineage:
 - Root usage/reservation summary / peak concurrency / retries and review rounds / stop reason:
 - Unresolved in-flight operations or costs / completed and still-required checks / checkpoint reference:
 - Recommended next step:

@@ -15,6 +15,7 @@ Status: planning only. No issue assignments, estimates, or delivery promises.
 | US-09 | Corrections and outcomes to improve later advice | HS-012, HS-013 | U6 Learning and measures |
 | US-10 | To resume failed or interrupted work without false completion | HS-015 | U5 Coordination and recovery |
 | US-11 | The workflow to respect a shared resource budget and avoid runaway instances or repeated work | HS-017, HS-018, HS-019, HS-020 | U5 Coordination, governor, and recovery |
+| US-12 | Strong central orchestration, inexpensive qualified workers, and measured reasons for adding capacity | HS-021, HS-022, HS-023 | U5 Routing/governance and U6 evaluation |
 
 ## First integrated slice
 
@@ -27,3 +28,5 @@ U1 precedes U2/U3; U2 supplies facts to U3; U3 precedes U4; U5 integrates these 
 ## Before code
 
 Review the guided pilot; select representation, storage, and execution mode; set an evaluation baseline and budget; choose whether to adopt AI-DLC; define actual executable acceptance checks. Keep optional integrations out until a user need justifies them.
+
+Implement the [model hierarchy](../../docs/architecture/model-routing.md) and qualified route registry when model execution is introduced. Evaluate worker counts using the [scaling protocol](../../evaluation/worker-scaling.md); do not turn the governor's illustrative ceiling into a production target or infer savings without complete cost and quality evidence.

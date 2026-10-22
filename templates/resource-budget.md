@@ -10,7 +10,8 @@ Blank template. Completed real workflow records are private. This record is not 
 - Approved nine-agent roster reference:
 - Deployment/service-wide ceilings, if applicable:
 - Ontology snapshot and evidence/input versions:
-- Model/provider and price version/date:
+- Model registry/routing-policy version and qualified provider/model/version/price basis for each tier:
+- Workload-specific validated specialist-worker target/envelope and scaling-evidence record; separate total execution ceiling:
 - Monetary cap, currency, included tool fees:
 - Limits: concurrent workers; model/tool attempts; aggregate input/output/billed-reasoning tokens; per-call input/output; retries; review rounds; no-progress rounds; call/task/workflow time:
 - Task allowances and required review/validation work reserved or planned:
@@ -36,6 +37,7 @@ Reconcile different units separately. Count all descendant work and orchestrator
 | | | | | | | |
 
 - Peak active workers:
+- Peak active specialist instances (including frontier escalations) / active orchestration; actual model costs by route:
 - Retries and artifact review/revision rounds:
 - Material progress / no-progress count:
 - Duplicate work avoided and freshness/permission basis for reuse:

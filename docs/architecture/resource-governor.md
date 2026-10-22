@@ -8,6 +8,8 @@ The Career Orchestrator decides which work is useful. A resource governor in the
 
 The governor is a runtime component, **not a tenth agent**. All nine career agents retain their separate contracts. Limits apply to executing instances and calls, not to whether an agent remains part of the architecture. Invoke only relevant agents and queue additional work when capacity is full.
 
+The [model hierarchy](model-routing.md) places central orchestration on a frontier-capability model and routine specialists on inexpensive qualified models. It selects worker targets from measured evidence, not from this governor's hard ceilings. Frontier escalations remain specialist instances and consume the same root allowances and capacity. No model substitution may bypass pricing, data permissions, retry/review limits, or required human decisions.
+
 ## Scope and invariants
 
 One root workflow ID covers the user's bounded objective, every specialist task, any delegated work, orchestration calls, critiques, revisions, retries, model calls, and tool calls. All descendants use the same budget ledger and policy version. Creating a child task, restarting a process, or resuming a checkpoint cannot reset counters or create a fresh allowance.
@@ -39,6 +41,8 @@ The [synthetic policy example](../../examples/synthetic/resource-policy.json) ex
 
 Each task may have tighter limits. Task allowances draw from the root allowance rather than adding to it. A stricter deployment or service-wide ceiling takes precedence. A multi-workflow deployment must also set service-wide concurrency and aggregate spending limits so many individually bounded workflows cannot overload the service.
 
+The illustrative three-instance concurrency ceiling does not recommend three workers. The policy field `concurrent_workers` counts all executing instances, including active orchestration. Apply any measured specialist-worker target as an additional bound; active orchestration plus admitted specialists must still fit the total ceiling. More expensive frontier-specialist routes count as workers too. The [model-routing reference](../../examples/synthetic/model-routing-policy.json) leaves the production target unset pending qualifying trials.
+
 ## Admission and accounting
 
 Before admitting an instance or issuing a model/tool request, the runtime must:
@@ -51,6 +55,8 @@ Before admitting an instance or issuing a model/tool request, the runtime must:
 6. Reconcile the reservation with reported usage and actual result. Release only confirmed unused reservations, and release execution capacity only when the operation is confirmed stopped. An admitted request cancelled before dispatch may release its reservation without consuming an outbound-attempt count.
 
 Counters and reservations must survive process failure. An unresolved request retains a conservative reservation until reconciled. Do not assume that a timeout means no billing or no external action occurred, and do not dispatch a replacement worker while its predecessor may still be running. A provider refusal or transport retry still consumes an outbound-attempt count if a request was issued.
+
+Resolve the actual model/provider/version and price basis on every dispatch, including escalation. Reserve against that route's cost rather than the original worker's cheaper rate. Record usage by route/model as well as root totals so supervision overhead and savings claims can be evaluated. Selecting a qualified model route never creates a separate budget.
 
 Token and spend admission bounds depend on provider limits, known prices, and complete accounting. Unexpected metering or price differences must be recorded, halt further dispatch, and trigger reconciliation. Do not claim guaranteed invoice-level precision when actual usage is delayed or incomplete.
 

@@ -16,6 +16,8 @@ No targets or measured outcomes are asserted by this file. Set targets with the 
 | Critique value | Material errors or assumptions corrected after review | More objections are not automatically better |
 | Coordination efficiency | Duplicate tasks and avoidable retries per cycle | A duplicated source is not necessarily independent corroboration |
 | Resource governance | Peak concurrent instances, model/tool attempts, tokens/spend consumed and reserved, review rounds, stop reasons, and incomplete checks | Count all root descendants and orchestration; distinguish estimated, reconciled, and unknown usage; manual role-play cannot claim enforced limits |
+| Model hierarchy | Per-tier/model/version usage and cost, supervision, escalation, retry, and consolidation overhead | Cheap worker prices do not prove lower system cost; include failed attempts and actual route prices |
+| Worker scaling | Quality-qualified cost per accepted packet, end-to-end latency/spread, and marginal benefit at each tested worker count | Hold workload/models/quality constant; production count is unselected until evidence meets declared objectives within governor ceilings |
 
 ## Comparison design
 
@@ -26,3 +28,5 @@ Use the same synthetic profile, listing set, evidence access, and review criteri
 At each pilot review, record what improved, what failed, unknowns, cost/effort, and the next bounded experiment. Preserve the nine-agent baseline; any proposed architecture change needs evidence and project-owner approval. Add infrastructure only when it addresses an observed limitation. Keep real job-search outcomes in the private [outcome tracker](../templates/outcome-tracker.csv).
 
 Evaluate any proposed [resource-policy](../docs/architecture/resource-governor.md) adjustment using both usefulness and resource consumption. A low cost achieved by omitting required critique is not a successful optimization. Version authorized limit changes and retain consumed usage and outstanding reservations. Use the private [resource-budget record](../templates/resource-budget.md).
+
+Use the [worker-scaling protocol](worker-scaling.md) and [experiment record](../templates/scaling-experiment.md) to compare serial and parallel execution under the [model hierarchy](../docs/architecture/model-routing.md). Report elapsed time separately from actual model/tool and other measured cost. Select capacity only from qualifying results against declared objectives; no target or savings is established by the reference policy files.

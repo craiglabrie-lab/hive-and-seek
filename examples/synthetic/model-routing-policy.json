@@ -1,0 +1,55 @@
+{
+  "policy_id": "model-hierarchy-v0.1",
+  "status": "design_reference_not_configured",
+  "tiers": {
+    "frontier": {
+      "purpose": "central_orchestration_and_qualified_reasoning_escalations",
+      "provider": null,
+      "model_id": null,
+      "model_version": null,
+      "pricing_version": null,
+      "evaluation_record": null
+    },
+    "economy": {
+      "purpose": "inexpensive_task_qualified_specialist_work",
+      "provider": null,
+      "model_id": null,
+      "model_version": null,
+      "pricing_version": null,
+      "evaluation_record": null
+    }
+  },
+  "default_role_tiers": {
+    "career-ontology": "economy",
+    "job-market-intelligence": "economy",
+    "job-fit-analysis": "economy",
+    "resume-strategy": "economy",
+    "recruiter-ats-analysis": "economy",
+    "interview-preparation": "economy",
+    "networking": "economy",
+    "critical-reasoning": "economy",
+    "career-orchestrator": "frontier"
+  },
+  "escalation": {
+    "target_tier": "frontier",
+    "requires_material_reasoning_issue": true,
+    "preserves_agent_role": true,
+    "requires_governor_admission": true,
+    "shares_root_budget_and_attempt_limits": true,
+    "may_supply_missing_facts_or_user_permission": false
+  },
+  "worker_selection": {
+    "strategy": "measure_before_selecting",
+    "serial_baseline_workers_for_benchmark": 1,
+    "production_worker_concurrency": null,
+    "validated_envelope": null,
+    "scaling_evidence_record": null,
+    "benefit_threshold": null,
+    "acceptable_added_cost": null,
+    "counts_frontier_escalated_specialists_as_workers": true,
+    "counts_active_orchestration_against_governor_ceiling": true,
+    "may_raise_governor_limits": false
+  },
+  "unknown_or_unqualified_route_behavior": "pause_or_use_explicitly_permitted_qualified_route",
+  "unconfigured_policy_may_activate_runtime": false
+}
