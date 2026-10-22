@@ -1,0 +1,28 @@
+# Real candidate data and local working records
+/private/
+/data/private/
+/data/raw/
+/data/exports/
+/data/embeddings/
+/runtime/
+/logs/
+/artifacts/private/
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets*.json
+
+# Temporary outputs and common local caches
+*.log
+*.tmp
+*.bak
+__pycache__/
+.venv/
+node_modules/
+.DS_Store
+Thumbs.db
