@@ -15,6 +15,7 @@ The goal is to help a person find opportunities that fit both their demonstrated
 - [What ontology-driven means](#what-ontology-driven-means)
 - [The nine agents](#the-nine-agents)
 - [How the agents work together](#how-the-agents-work-together)
+- [Execution throttle and efficiency](#execution-throttle-and-efficiency)
 - [The career workflow](#the-career-workflow)
 - [An example decision](#an-example-decision)
 - [Two layers: building the system and using it](#two-layers-building-the-system-and-using-it)
@@ -159,6 +160,32 @@ Critical review should form an initial view from the question, criteria, and evi
 
 See the [coordination protocol](docs/architecture/coordination.md) and [handoff template](templates/agent-handoff.md) for the detailed contract.
 
+## Execution throttle and efficiency
+
+The proposed **resource governor** puts bounds around the career workflow. The Career Orchestrator selects relevant work; the governor determines whether it may execute within the selected capacity, call, token, monetary, retry, review, and time allowances.
+
+This is a runtime component, **not a tenth agent**. All nine agents remain available, and idle roles do not consume execution slots. Every executing instance and model/tool request must pass admission checks, including orchestration calls and delegated work. Enforcement belongs in orchestration software; instructions asking an LLM to be economical cannot supply it.
+
+| Control | Illustrative pilot setting | Purpose |
+| --- | --- | --- |
+| Concurrent workers | 3 per root workflow | Queue excess work without merging or removing roles |
+| Aggregate calls | 24 model attempts and 12 tool attempts | Bound sequential work as well as parallel work, including retries and critique |
+| Aggregate model tokens | 60,000 input/output tokens, including billed reasoning where applicable | Prevent individual tasks from collectively exceeding one shared allowance |
+| Retry / review limits | 1 task retry; 2 additional review/revision rounds per artifact lineage | Bound repeated failures and discussion loops |
+| No-progress limit | 2 consecutive non-progress review/revision rounds | Pause repetitive work that adds no material evidence or correction |
+| Time limits | 90 seconds per call; 300 per task; 900 accumulated workflow execution seconds | Bound stalled work and preserve elapsed time across resumes |
+| Monetary budget | Must be selected with currency and a pricing basis | Reserve known model/tool costs; do not treat unknown usage as free |
+
+These numbers are **illustrative proposals, not active defaults or measured optimal values**. The [reference policy](examples/synthetic/resource-policy.json) is non-executable example data with monetary settings intentionally unset. The current repository contains no throttle implementation.
+
+The governor uses one durable ledger for the root workflow and all descendants. Before dispatch, it must atomically reserve conservative usage estimates against consumed resources and outstanding reservations. This prevents simultaneous agents from each spending the same remaining budget. Resume and retry retain counters rather than creating new allowances.
+
+Efficiency also depends on relevant-agent routing, duplicate detection, permission/freshness-aware evidence reuse, and task-specific context. Context trimming must preserve material constraints and contrary evidence. Additional work cannot be justified merely by producing longer text or more agent agreement.
+
+When a hard limit is reached, stop new dispatch, reconcile in-flight operations, preserve completed artifacts, and pause with unfinished work clearly identified. Required critique, privacy, career constraints, and action approvals cannot be skipped to fit the budget. Unknown external-action results must be reconciled before retrying. Agents cannot raise their own limits.
+
+See the [resource-governor specification](docs/architecture/resource-governor.md), [budget record](templates/resource-budget.md), and [design decision](docs/decisions/0004-resource-governor.md). Numerical operating limits and service-wide ceilings must be selected before governed execution; manual role-play without reliable metering is labeled advisory.
+
 ## The career workflow
 
 The portable persona guides a person through discovery, knowledge construction, architecture, implementation planning, a validated pilot, and improvement. Within a job-search cycle, the practical outputs are:
@@ -276,6 +303,7 @@ The project should be judged by useful decisions and outcomes, including the eff
 | Constraint handling | Known violations, unresolved conditions, and inappropriate overrides |
 | Effort | User time, elapsed time, and repeated explanation |
 | Coordination | Duplicate tasks, avoidable retries, and material value of critique |
+| Resource governance | Peak concurrency, total model/tool attempts, reservations and reconciled usage, limit events, no-progress stops, and partial-work status |
 | Cost | Measured or explicitly estimated model/tool usage with a dated pricing basis |
 | Search outcomes | Applications, interviews, offers, observation windows, and pending outcomes |
 
@@ -309,7 +337,7 @@ No delivery dates, cloud platform, model provider, agent framework, graph databa
 | [workflows/](workflows/README.md) | Career pilot, continuous improvement, and AI-DLC adoption procedures |
 | [aidlc-docs/](aidlc-docs/README.md) | Human-authored intent, requirements, backlog, traceability, and future delivery planning |
 | [prompts/](prompts/README.md) | Portable career architect persona and usage context |
-| [templates/](templates/README.md) | Blank discovery, evidence, decision, change, handoff, fit, approval, and outcome records |
+| [templates/](templates/README.md) | Blank discovery, evidence, decision, change, handoff, resource-budget, fit, approval, and outcome records |
 | [examples/synthetic/](examples/synthetic/pilot.md) | Fictional end-to-end walkthrough with evidence and decision revisions |
 | [evaluation/](evaluation/README.md) | Acceptance scenarios and quality, outcome, effort, and cost measures |
 | [data/](data/README.md) | Public/private data guidance; no real candidate records |
@@ -328,6 +356,7 @@ No delivery dates, cloud platform, model provider, agent framework, graph databa
 | Understand career knowledge and decision rules | [Ontology model](ontology/model.md) and [decision rules](ontology/decision-rules.md) |
 | Inspect the nine roles | [Agent catalogue](agents/README.md) |
 | Design handoffs and shared-state updates | [Coordination protocol](docs/architecture/coordination.md) |
+| Understand execution limits and spending controls | [Resource governor](docs/architecture/resource-governor.md), [reference policy](examples/synthetic/resource-policy.json), and [budget record](templates/resource-budget.md) |
 | Review the technical direction | [Architecture blueprint](docs/architecture/overview.md) and [technology options](docs/architecture/technology-options.md) |
 | Plan development with AI-DLC | [Adoption plan](workflows/development/ai-dlc-adoption.md) and [development artifacts](aidlc-docs/README.md) |
 | Review intended behavior and evaluation coverage | [Requirements](aidlc-docs/inception/requirements.md), [traceability](aidlc-docs/inception/traceability.md), and [acceptance scenarios](evaluation/acceptance-scenarios.md) |
@@ -348,6 +377,10 @@ Yes. All nine have distinct contracts and remain the architecture baseline. An a
 ### Does an ontology require a graph database?
 
 The first pilot can use private, versioned Markdown and CSV records with explicit concepts and relationships. Formal schemas, databases, graph representations, or retrieval infrastructure can be selected later if a demonstrated requirement justifies them.
+
+### What prevents too many agents or excessive spending?
+
+The design specifies a resource governor around the orchestrator: a fixed nine-role roster, bounded executing instances, shared aggregate allowances, atomic reservations, loop/time limits, and safe pause/resume. It is documented rather than implemented. Defining nine roles does not require running all nine at once, and no agent can independently expand the roster or raise limits.
 
 ### Will it automatically find jobs, send messages, or apply for me?
 

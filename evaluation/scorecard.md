@@ -15,6 +15,7 @@ No targets or measured outcomes are asserted by this file. Set targets with the 
 | Token use and cost | Measured usage × dated provider prices, plus actual tool costs | Mark estimated or unavailable; do not invent usage for ordinary chat |
 | Critique value | Material errors or assumptions corrected after review | More objections are not automatically better |
 | Coordination efficiency | Duplicate tasks and avoidable retries per cycle | A duplicated source is not necessarily independent corroboration |
+| Resource governance | Peak concurrent instances, model/tool attempts, tokens/spend consumed and reserved, review rounds, stop reasons, and incomplete checks | Count all root descendants and orchestration; distinguish estimated, reconciled, and unknown usage; manual role-play cannot claim enforced limits |
 
 ## Comparison design
 
@@ -23,3 +24,5 @@ Use the same synthetic profile, listing set, evidence access, and review criteri
 ## Review decision
 
 At each pilot review, record what improved, what failed, unknowns, cost/effort, and the next bounded experiment. Preserve the nine-agent baseline; any proposed architecture change needs evidence and project-owner approval. Add infrastructure only when it addresses an observed limitation. Keep real job-search outcomes in the private [outcome tracker](../templates/outcome-tracker.csv).
+
+Evaluate any proposed [resource-policy](../docs/architecture/resource-governor.md) adjustment using both usefulness and resource consumption. A low cost achieved by omitting required critique is not a successful optimization. Version authorized limit changes and retain consumed usage and outstanding reservations. Use the private [resource-budget record](../templates/resource-budget.md).

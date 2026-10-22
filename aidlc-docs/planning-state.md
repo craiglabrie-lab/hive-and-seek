@@ -9,6 +9,7 @@ Baseline date: 2026-10-22.
 | Product concept | Documented | Vision, requirements, roadmap |
 | Decision-context ontology | Draft conceptual model | Review against a private discovery pilot |
 | Agent contracts | Nine-agent baseline restored; detailed contracts remain draft | Original nine distinct agents; no grouped or deferred roles; see ADR-0003 |
+| Resource governor | Authorized design addition; not implemented | Shared budget/admission specification, illustrative limits, record template, acceptance scenarios; see ADR-0004 |
 | Career workflow | Draft | Synthetic walkthrough and blank templates |
 | AI-DLC adoption | Proposed | Upstream reviewed; release/harness setup still open |
 | Technology selection | Open | Record options and decisions before code |
@@ -21,4 +22,4 @@ Baseline date: 2026-10-22.
 
 Conduct private career discovery and one guided pilot using the supplied templates. Use findings to review the proposed requirements, decision rules, and role boundaries. Then select a minimal implementation approach, if needed.
 
-Open choices: project license, AI-DLC release/harness, provider, private storage, actual user criteria, budget, freshness policy, retry/concurrency policy, and evaluation targets. Creating a file or making a commit does not count as approval of those choices.
+Open choices: project license, AI-DLC release/harness, provider, private storage, actual user criteria, actual governor-policy values and monetary/pricing settings, service-wide ceilings, freshness policy, and evaluation targets. Numerical throttle settings are illustrative proposals; creating a file or making a commit does not activate them or implement enforcement.

@@ -13,6 +13,7 @@ The current baseline is documentation, folder structure, prompts, and non-code a
 - Keep development orchestration separate from the career runtime.
 - Preserve the original nine-agent career architecture and its separate contracts. Do not merge, defer, remove, or replace agents without an explicit design change approved by the project owner. Select relevant agents per task without changing the architecture.
 - Treat agent definitions as contracts, not proof of running agents.
+- Preserve the [resource-governor contract](docs/architecture/resource-governor.md): one shared root-workflow budget, admission checks, bounded execution, and retained counters on resume. The governor is not an additional agent. Reference policy numbers are illustrative; do not claim runtime enforcement or bypass required review to meet a budget.
 - Use approved evidence and ontology versions. Mark proposed changes and unresolved assumptions explicitly.
 - Record decision rationale, alternatives, impact, and revision reasons. Do not manufacture human approval or claim a review was performed by another agent when it was not.
 - Respect the user's requested scope. Do not add an extra approval ceremony to authorized documentation work.

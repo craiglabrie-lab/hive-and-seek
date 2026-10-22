@@ -9,6 +9,7 @@ Blank templates are safe to keep here. Fill them with real information only in a
 | [Decision record](decision-record.md) | Context, alternatives, rationale, tradeoffs, revisions |
 | [Ontology change](ontology-change.md) | Versioned updates and affected outputs |
 | [Agent handoff](agent-handoff.md) | Ownership, context, findings, uncertainty, next step |
+| [Resource budget](resource-budget.md) | Root policy, shared allowances/reservations, admission events, stop/checkpoint/resume |
 | [Job fit assessment](job-fit-assessment.md) | Separate capability, desirability, and evidence |
 | [Approval record](approval-record.md) | Concrete action/payload authorization and result |
 | [Outcome tracker](outcome-tracker.csv) | Observed stages, outcomes, and measures |

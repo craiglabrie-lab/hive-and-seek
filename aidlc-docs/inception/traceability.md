@@ -19,3 +19,7 @@ All scenario IDs refer to [acceptance scenarios](../../evaluation/acceptance-sce
 | HS-014 | [Agent catalogue](../../agents/README.md), [prompt](../../prompts/hive-and-seek-career-architect.txt) | EV-14 |
 | HS-015 | [Recovery protocol](../../docs/architecture/coordination.md) | EV-15 |
 | HS-016 | [Architecture](../../docs/architecture/overview.md), [AI-DLC plan](../../workflows/development/ai-dlc-adoption.md) | EV-16 |
+| HS-017 | [Governor](../../docs/architecture/resource-governor.md), [reference policy](../../examples/synthetic/resource-policy.json) | EV-17, EV-24 |
+| HS-018 | [Governor admission/accounting](../../docs/architecture/resource-governor.md), [budget record](../../templates/resource-budget.md) | EV-18, EV-19, EV-21, EV-24 |
+| HS-019 | [Governor recovery](../../docs/architecture/resource-governor.md), [coordination](../../docs/architecture/coordination.md) | EV-19, EV-20, EV-21, EV-23 |
+| HS-020 | [Governor efficiency rules](../../docs/architecture/resource-governor.md), [handoff](../../templates/agent-handoff.md), [scorecard](../../evaluation/scorecard.md) | EV-20, EV-22, EV-23 |

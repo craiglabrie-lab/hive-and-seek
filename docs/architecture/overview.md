@@ -25,6 +25,12 @@ flowchart TD
 
 The diagram summarizes information flow; it does not merge agent responsibilities. The [catalogue](../../agents/README.md) defines nine distinct baseline agents: Career Ontology, Job Market Intelligence, Job Fit Analysis, Resume Strategy, Recruiter & ATS Analysis, Interview Preparation, Networking, Critical Reasoning, and Career Orchestrator. Each has its own inputs, outputs, authority, and handoffs from the start. Select relevant agents per task; execution may initially be simulated in one conversation. See [ADR-0003](../decisions/0003-nine-agent-baseline.md).
 
+## Resource governor
+
+The [resource governor](resource-governor.md) is a proposed runtime component alongside the central orchestrator, not a tenth career agent. It admits work against a shared root-workflow ledger and limits concurrent instances, aggregate calls, tokens/spend, retries, review loops, and time. Admission must be enforced by software; a request to an LLM to be efficient is insufficient.
+
+The orchestrator chooses relevant work, while the governor queues or blocks execution that exceeds policy. On exhaustion, stop new dispatch, reconcile in-flight operations, and preserve a partial checkpoint. Required critique, career constraints, privacy, and approval boundaries remain intact. Policy numbers are illustrative and no enforcement code exists yet.
+
 ## Knowledge and state
 
 | Store | Contents | Write authority |
@@ -34,6 +40,7 @@ The diagram summarizes information flow; it does not merge agent responsibilitie
 | Ontology snapshot | Approved concepts, relationships, rules, version | Controlled change process through ontology role |
 | Decision history | Choices, reasons, alternatives, revisions | Append new decisions and superseding records |
 | Task ledger | Task IDs, ownership, snapshot, status, artifacts, budget | Orchestrator |
+| Resource ledger | Root workflow/policy version, admission decisions, counters, reservations, actual or unknown usage, stop/resume events | Future runtime governor; agents cannot rewrite allowances |
 | Output workspace | Drafts, fit reports, reviews | Assigned role, versioned |
 | Approval and outcome records | Exact action/payload approval and observed results | User authorizes; coordinator records evidence |
 

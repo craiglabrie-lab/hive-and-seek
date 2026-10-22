@@ -14,6 +14,7 @@ Status: planning only. No issue assignments, estimates, or delivery promises.
 | US-08 | Control over private data and every external action | HS-010, HS-011 | Cross-cutting boundary |
 | US-09 | Corrections and outcomes to improve later advice | HS-012, HS-013 | U6 Learning and measures |
 | US-10 | To resume failed or interrupted work without false completion | HS-015 | U5 Coordination and recovery |
+| US-11 | The workflow to respect a shared resource budget and avoid runaway instances or repeated work | HS-017, HS-018, HS-019, HS-020 | U5 Coordination, governor, and recovery |
 
 ## First integrated slice
 
@@ -21,7 +22,7 @@ Use one synthetic profile, a supplied synthetic listing, one ontology version, a
 
 ## Dependency order
 
-U1 precedes U2/U3; U2 supplies facts to U3; U3 precedes U4; U5 integrates these contracts; U6 consumes review/outcome records. Privacy, permission boundaries, and evidence checks apply from the first unit. Refine these units into an executable dependency plan after technology selection; do not treat this prose as an engine DAG.
+U1 precedes U2/U3; U2 supplies facts to U3; U3 precedes U4; U5 integrates these contracts; U6 consumes review/outcome records. Privacy, permission boundaries, and evidence checks apply from the first unit. The resource governor must guard the first tool/model dispatch when executing-agent functionality is introduced; its placement in U5 is not permission to defer admission controls until after autonomous execution. Refine these units into an executable dependency plan after technology selection; do not treat this prose as an engine DAG.
 
 ## Before code
 

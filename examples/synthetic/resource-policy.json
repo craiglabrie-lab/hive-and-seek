@@ -1,0 +1,43 @@
+{
+  "policy_id": "conceptual-pilot-v0.1",
+  "status": "illustrative_not_active",
+  "scope": "root_workflow_and_all_descendants",
+  "allowed_agent_roles": [
+    "career-ontology",
+    "job-market-intelligence",
+    "job-fit-analysis",
+    "resume-strategy",
+    "recruiter-ats-analysis",
+    "interview-preparation",
+    "networking",
+    "critical-reasoning",
+    "career-orchestrator"
+  ],
+  "limits": {
+    "concurrent_workers": 3,
+    "model_call_attempts": 24,
+    "tool_call_attempts": 12,
+    "aggregate_model_tokens": 60000,
+    "input_tokens_per_model_call": 12000,
+    "output_tokens_per_model_call": 2000,
+    "retries_per_task": 1,
+    "additional_review_revision_rounds_per_artifact_lineage": 2,
+    "consecutive_no_progress_rounds": 2,
+    "call_timeout_seconds": 90,
+    "task_timeout_seconds": 300,
+    "workflow_execution_seconds": 900
+  },
+  "monetary_budget": {
+    "amount": null,
+    "currency": null,
+    "pricing_version": null,
+    "tool_fees_included": null
+  },
+  "requires_budget_selection_before_governed_execution": true,
+  "reservation_strategy": "atomic_conservative_upper_bound",
+  "unknown_usage_behavior": "retain_reservation_and_reconcile",
+  "limit_behavior": "stop_new_dispatch_drain_checkpoint_pause",
+  "resume_behavior": "preserve_ledger_counters_and_elapsed_time",
+  "agent_may_raise_limits": false,
+  "uncompleted_required_review_may_be_skipped": false
+}

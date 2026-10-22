@@ -4,11 +4,11 @@ Status: proposed contract for manual and future automated execution.
 
 ## Dispatch
 
-The orchestrator creates a task with a unique task ID, one owner, objective, required inputs, approved ontology version, allowed tools, output contract, dependencies, and effort limit. The task ledger prevents duplicate work by checking opportunity/source identity and task objective before assignment.
+The orchestrator creates a task with a unique task ID, one owner, objective, required inputs, approved ontology version, allowed tools, output contract, dependencies, and effort limit. Each task carries its root workflow ID, resource-policy version, and shared budget-ledger reference. The task ledger prevents duplicate work by checking opportunity/source identity, objective, input versions, and access scope before assignment. Future runtime execution must pass the [resource governor](resource-governor.md) before starting an instance or issuing a model/tool request.
 
 All roles use the [handoff template](../../templates/agent-handoff.md). Artifacts include task ID, actor, timestamps, source references, and ontology version. A manual pilot can maintain this in Markdown; no task engine currently exists.
 
-Proposed task states: queued → running → ready-for-review → completed. A task may instead be blocked, failed, or cancelled. A blocked task names its missing input. A retry keeps the original task ID and adds an attempt number; it does not silently create a second task.
+Proposed task states: queued → running → ready-for-review → completed. A task may instead be paused, blocked, failed, or cancelled. A blocked task names its missing input; a paused task names its resource or user-decision boundary. A retry keeps the original task ID and adds an attempt number; it does not silently create a second task or reset the root allowance.
 
 ## Shared knowledge
 
@@ -30,4 +30,6 @@ A completed packet contains sources and freshness, capability assessment, desira
 
 The initial pilot is draft-only. A future tool-enabled action needs permission tied to the recipient or destination, exact payload version, and action. Recheck permission and payload immediately before execution; changes invalidate the approval. Record the actual service result. If delivery status is unknown, reconcile it before retrying to avoid duplicate submissions or messages.
 
-A bounded retry policy, concurrency limit, timeout, and token/cost budget must be chosen before autonomous execution. Parallelism is appropriate for independent evidence collection or critique, not unsynchronized writes to shared preferences or approvals.
+A bounded retry policy, concurrency limit, timeout, and token/cost budget must be chosen before autonomous execution. The [resource-governor specification](resource-governor.md) defines aggregate admission, accounting, no-progress stops, safe reuse, cancellation, and recovery. Its [reference policy](../../examples/synthetic/resource-policy.json) is illustrative and not active configuration. Parallelism is appropriate for independent evidence collection or critique, not unsynchronized writes to shared preferences or approvals.
+
+All nine roles remain defined even when execution is throttled. Required critique and approval remain incomplete when resources run out; do not silently omit them or label a partial packet verified. Checkpoints preserve usage counters, elapsed time, retry/revision history, in-flight operations, reservations, and versions. Resume revalidates inputs and uses the same ledger. An unknown external-action result must be reconciled before retry, regardless of remaining budget.

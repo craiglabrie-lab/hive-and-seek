@@ -20,9 +20,13 @@ Status: proposed product specification grounded in the project concept. â€œMustâ
 | HS-014 | Remain portable and honest about execution mode | Simulated roles are labeled; unavailable tools/persistence/scheduling are not claimed |
 | HS-015 | Support bounded failure and session recovery in an executing runtime | Failed tasks and retries are visible; checkpoint includes snapshot and artifact versions; uncertain sends are reconciled |
 | HS-016 | Separate development lifecycle from career operations | Development records and permissions cannot authorize career actions; AI-DLC is not represented as an installed career runtime |
+| HS-017 | Govern execution without changing the nine-agent architecture | Register executing instances; enforce the approved roster and configured root/service-wide capacity; queue excess work; governor is not an additional agent |
+| HS-018 | Enforce aggregate resource admission and durable accounting | Atomically reserve shared root allowances before model/tool dispatch; count all descendants, orchestration, retries, and reviews; reconcile actual/unknown usage; block unbounded or unpriced operations |
+| HS-019 | Bound loops and stop/resume safely | Enforce calls, tokens/spend, retry/review/progress/time limits; stop dispatch, drain/reconcile, checkpoint/pause; preserve counters across resumes; never bypass required critique or action approval |
+| HS-020 | Reduce redundant work without dropping material context | Reuse only version/freshness/access-valid evidence; deduplicate tasks; limit context while preserving constraints and contrary evidence; report efficiency and partial-work status honestly |
 
 ## Quality requirements
 
-Explain recommendations in plain language; minimize repeated questions when evidence exists; preserve source locators; isolate untrusted document instructions; keep execution bounded within the nine-agent baseline by invoking relevant agents per task. Budgets, latency, storage, retention duration, and numeric quality targets remain open until the pilot establishes a baseline.
+Explain recommendations in plain language; minimize repeated questions when evidence exists; preserve source locators; isolate untrusted document instructions; keep execution bounded within the nine-agent baseline by invoking relevant agents per task. The [resource-governor contract](../../docs/architecture/resource-governor.md) defines intended enforcement. Its reference limits are illustrative; operating budgets, pricing, service-wide capacity, storage, retention, and numeric quality targets remain open until selected for a measured pilot.
 
 No service level or employment outcome is guaranteed. The first implementation must pass the material truthfulness, permission, privacy, and constraint scenarios before any autonomous external action is considered.
