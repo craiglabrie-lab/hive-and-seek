@@ -1,27 +1,17 @@
-# ADR-0002: Guided pilot before separate executing agents
+# ADR-0002: Earlier guided-pilot consolidation proposal
 
-Date: 2026-10-22. Status: proposed.
+Date: 2026-10-22. Status: superseded by [ADR-0003](0003-nine-agent-baseline.md). This proposal was not accepted and does not govern the architecture.
 
 ## Context
 
-The career architect concept recommends starting with a small set of roles and proving one useful workflow before adding cost and infrastructure. The broader catalogue contains nine responsibilities.
+The initial documentation scaffold proposed consolidating the original nine career agents for a guided pilot. This was an assistant-authored design change, not an agreed project decision.
 
-## Proposed decision
+## Disposition
 
-Begin with five logical roles: Orchestrator, Ontology, Market Intelligence, Fit & Application Strategy, and Critical Reasoning. Combine draft support under the fit/application role while preserving the separate contracts. Conduct one guided pilot in a private workspace.
+The project owner requested restoration of the original nine-agent specification. ADR-0003 replaces the consolidation proposal with nine distinct agents throughout the README, contracts, workflows, prompt, and evaluation criteria.
 
-## Alternatives and tradeoffs
+## Retained principle
 
-| Option | Benefit | Cost / limitation |
-| --- | --- | --- |
-| One undifferentiated assistant | Very simple baseline | Context, critique, and responsibilities are less explicit |
-| Five logical roles in one chat | Portable and easy to inspect | Simulated critique has limited independence; persistence is manual |
-| Separate executing agents immediately | Tool isolation and durable task execution possible | Framework, state, budget, recovery, and integration complexity |
+Begin with a bounded, reviewable workflow before adding runtime infrastructure. All nine roles may be simulated in one conversation with separate responsibilities and handoffs. Choosing relevant agents for a task does not change the architecture.
 
-## Review criteria
-
-Compare recommendation relevance, evidence accuracy, constraint handling, time, and cost against a comparable single-assistant baseline. Split roles when measured failures or context/tool boundaries justify it. No agent count guarantees quality.
-
-## Open
-
-Owner acceptance, pilot target category, private materials, actual criteria, sample size, and measurable targets. No runtime platform or provider is selected by this proposal.
+This historical record preserves the reason for the correction. No runtime platform, provider, installation, or external-action permission is selected here.

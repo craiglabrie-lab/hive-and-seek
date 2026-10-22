@@ -12,4 +12,4 @@
 
 **Quality checks:** Suggestions remain truthful and readable; speculation about screening is labeled; requirements link to the listing and recommended claims link to evidence.
 
-**Handoff:** Send edits with reasons to Resume Strategy or the combined pilot role, and unresolved screening risks to Fit Analysis.
+**Handoff:** Send edits with reasons to Resume Strategy, and unresolved screening risks to Job Fit Analysis. Return status and evidence references to the Career Orchestrator.

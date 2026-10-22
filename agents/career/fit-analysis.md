@@ -12,6 +12,6 @@
 
 **Quality checks:** Explain weak as well as strong matches; unknowns remain visible; recommendation is traceable and challenged; weights, if used, are user-approved and not represented as hiring probabilities.
 
-**Pilot combination:** This role also coordinates resume/ATS/interview/networking draft responsibilities. Each output retains the relevant contract and receives independent critique.
+**Role boundary:** Assess fit. Resume Strategy owns application drafting; Recruiter & ATS Analysis owns screening analysis; Interview Preparation owns interview coaching; Networking owns outreach strategy and drafts. The Career Orchestrator routes work among these distinct agents.
 
 **Handoff:** Send the assessment and underlying evidence to Critical Reasoning before final consolidation.

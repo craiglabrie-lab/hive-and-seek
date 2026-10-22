@@ -22,7 +22,7 @@ Hive & Seek preserves those connections in an explicit, versioned **decision-con
 | Layer | Purpose | Starting point |
 | --- | --- | --- |
 | Development system | Build and validate Hive & Seek through requirements, design, implementation, review, and delivery | AI-DLC adoption plan; no tooling installed |
-| Career system | Help a person make and carry out evidence-backed career decisions | Guided conversation with 3–5 logical specialist roles |
+| Career system | Help a person make and carry out evidence-backed career decisions | Nine distinct logical agents, initially usable in a guided conversation |
 
 [AWS Labs AI-DLC Workflows](https://github.com/awslabs/aidlc-workflows) is the proposed development workflow. It is not assumed to supply the career ontology, job-search integrations, or production agent runtime. See the [adoption plan](workflows/development/ai-dlc-adoption.md).
 
@@ -53,9 +53,21 @@ Hive & Seek preserves those connections in an explicit, versioned **decision-con
 
 ## First milestone
 
-Complete one reviewable career workflow: discovery → approved ontology → verified opportunity → separate capability/desirability assessment → evidence-backed draft → independent critique → user review → outcome record. Prove this is useful before adding autonomous execution or more agents.
+Complete one reviewable career workflow: discovery → approved ontology → verified opportunity → separate capability/desirability assessment → evidence-backed draft → independent critique → user review → outcome record. Use the nine-agent architecture and prove the workflow is useful before adding autonomous execution.
 
-The initial five logical roles are Career Orchestrator, Career Ontology, Market Intelligence, Fit & Application Strategy, and Critical Reasoning. The broader catalogue documents roles that can be separated later. Logical roles in one conversation are not independently executing agents.
+## The nine agents
+
+1. Career Ontology
+2. Job Market Intelligence
+3. Job Fit Analysis
+4. Resume Strategy
+5. Recruiter & ATS Analysis
+6. Interview Preparation
+7. Networking
+8. Critical Reasoning
+9. Career Orchestrator
+
+Each agent has a distinct [contract](agents/README.md). The orchestrator invokes the agents relevant to a task; an agent need not participate in every workflow to remain part of the architecture. All nine roles may initially be simulated in one conversation. This does not imply separate model instances or independently executing agents. Changes to the nine-agent baseline require an explicit design decision approved by the project owner.
 
 ## Working principles
 

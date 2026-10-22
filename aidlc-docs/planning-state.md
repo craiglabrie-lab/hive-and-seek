@@ -8,7 +8,7 @@ Baseline date: 2026-10-22.
 | --- | --- | --- |
 | Product concept | Documented | Vision, requirements, roadmap |
 | Decision-context ontology | Draft conceptual model | Review against a private discovery pilot |
-| Agent contracts | Draft | Five-role starting topology; nine logical responsibilities |
+| Agent contracts | Nine-agent baseline restored; detailed contracts remain draft | Original nine distinct agents; no grouped or deferred roles; see ADR-0003 |
 | Career workflow | Draft | Synthetic walkthrough and blank templates |
 | AI-DLC adoption | Proposed | Upstream reviewed; release/harness setup still open |
 | Technology selection | Open | Record options and decisions before code |

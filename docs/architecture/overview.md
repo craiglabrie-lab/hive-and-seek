@@ -23,7 +23,7 @@ flowchart TD
     Updates --> Ontology
 ```
 
-The five starting roles combine fit and application strategy. The [catalogue](../../agents/README.md) preserves nine logical responsibilities for later separation.
+The diagram summarizes information flow; it does not merge agent responsibilities. The [catalogue](../../agents/README.md) defines nine distinct baseline agents: Career Ontology, Job Market Intelligence, Job Fit Analysis, Resume Strategy, Recruiter & ATS Analysis, Interview Preparation, Networking, Critical Reasoning, and Career Orchestrator. Each has its own inputs, outputs, authority, and handoffs from the start. Select relevant agents per task; execution may initially be simulated in one conversation. See [ADR-0003](../decisions/0003-nine-agent-baseline.md).
 
 ## Knowledge and state
 

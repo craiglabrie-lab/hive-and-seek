@@ -8,8 +8,8 @@ After a pilot cycle or meaningful new feedback, review what actually changed.
 4. Confirm changed preferences, exclusions, and disputed claims with the user.
 5. Revalidate affected recommendations; preserve the original decision and its context.
 6. Compare usefulness, truthfulness, time, and cost with the [scorecard](../../evaluation/scorecard.md).
-7. Decide whether another role, integration, or larger runtime would address an observed problem.
+7. Review handoffs and relevant-agent routing within the nine-agent baseline. Propose any architecture change separately for project-owner approval.
 
 Suggested review cadence: after each pilot packet and periodically during an active search, at an interval chosen by the user. No recurring task is configured.
 
-Reduce duplication before adding agents. A rejection may have many causes; record known feedback and leave the cause unknown when there is no evidence. Preserve unresolved dissent and negative results as learning material.
+Reduce duplication through clear responsibilities and shared evidence. Preserve the nine distinct agents unless the project owner explicitly approves a documented architecture change. A rejection may have many causes; record known feedback and leave the cause unknown when there is no evidence. Preserve unresolved dissent and negative results as learning material.

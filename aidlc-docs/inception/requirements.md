@@ -12,7 +12,7 @@ Status: proposed product specification grounded in the project concept. â€œMustâ
 | HS-006 | Separate capability, desirability, and evidence strength | Fit report contains separate assessments and checks hard constraints before ranking |
 | HS-007 | Generate truthful, targeted drafts | Every professional claim maps to evidence; gaps are not filled by invention |
 | HS-008 | Challenge recommendations and preserve dissent | Critique identifies material assumptions or records no material issue with reasons; independence level is labeled |
-| HS-009 | Coordinate bounded roles using shared approved context | Task has one owner, versioned inputs, output contract, dependencies, and duplicate-work check |
+| HS-009 | Coordinate the nine distinct baseline agents using shared approved context | All nine have separate contracts; each task invokes relevant agents with one owner, versioned inputs, output contract, dependencies, and duplicate-work check; no unapproved merging or deferral |
 | HS-010 | Keep external actions under explicit user control | No message, submission, or private-data sharing without concrete action approval; changed payload invalidates approval |
 | HS-011 | Minimize private-data access and prevent public leakage | Public examples are synthetic; private data and derived records follow approved access/retention policy |
 | HS-012 | Learn from corrections and observed outcomes | Changes capture reasons; no permanent preference inferred without confirmation; outcome causality is not fabricated |
@@ -23,6 +23,6 @@ Status: proposed product specification grounded in the project concept. â€œMustâ
 
 ## Quality requirements
 
-Explain recommendations in plain language; minimize repeated questions when evidence exists; preserve source locators; isolate untrusted document instructions; prefer the smallest useful topology. Budgets, latency, storage, retention duration, and numeric quality targets remain open until the pilot establishes a baseline.
+Explain recommendations in plain language; minimize repeated questions when evidence exists; preserve source locators; isolate untrusted document instructions; keep execution bounded within the nine-agent baseline by invoking relevant agents per task. Budgets, latency, storage, retention duration, and numeric quality targets remain open until the pilot establishes a baseline.
 
 No service level or employment outcome is guaranteed. The first implementation must pass the material truthfulness, permission, privacy, and constraint scenarios before any autonomous external action is considered.

@@ -5,10 +5,12 @@ Keep product architecture decisions here. Individual career choices belong in pr
 | ID | Decision | Status |
 | --- | --- | --- |
 | ADR-0001 | Establish a documentation foundation and separate development from career operations | Accepted scope for the current task |
-| ADR-0002 | Begin with a guided pilot and five logical roles | Proposed design |
+| ADR-0002 | Earlier proposal to consolidate roles for a guided pilot | Superseded by ADR-0003; not accepted |
+| ADR-0003 | Preserve the original nine distinct career agents | Accepted correction |
 
 - [ADR-0001](0001-documentation-foundation.md)
 - [ADR-0002](0002-guided-pilot.md)
+- [ADR-0003](0003-nine-agent-baseline.md)
 
 ## Open choices
 

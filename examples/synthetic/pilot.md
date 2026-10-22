@@ -28,7 +28,21 @@ The capability relation is an interpretation grounded in the accomplishment. It 
 
 ## 3. Task ownership and handoff
 
-Illustrative task TASK-DEMO-001 is assigned to the combined Fit & Application Strategy role using career-demo-v1. Market Intelligence supplies EVID-004 as a synthetic listing; it does not claim current hiring status. Ontology owns proposed knowledge changes. The critic has a separate review responsibility.
+The Career Orchestrator assigns distinct illustrative tasks using career-demo-v1:
+
+| Agent | Task in this example |
+| --- | --- |
+| Career Ontology | Maintain the synthetic snapshot and evidence relationships |
+| Job Market Intelligence | Supply EVID-004 as a synthetic listing without claiming current hiring status |
+| Job Fit Analysis | TASK-DEMO-001: assess capability, desirability, and the travel constraint |
+| Resume Strategy | TASK-DEMO-002: prepare the evidence-backed draft paragraph |
+| Recruiter & ATS Analysis | TASK-DEMO-003: check the draft against known listing criteria without adding unsupported keywords |
+| Interview Preparation | Defined in the baseline; no interview-preparation task needed for this packet |
+| Networking | TASK-DEMO-004: draft the travel-clarification question for review; do not send |
+| Critical Reasoning | TASK-DEMO-005: challenge the assessment, draft, and unresolved assumptions |
+| Career Orchestrator | Route handoffs and assemble the final review packet |
+
+Each role retains its own contract. An agent without a task in this packet remains part of the nine-agent architecture.
 
 Expected outputs: fit assessment, truthful draft paragraph, critique, and consolidated decision. Execution mode: illustrative roles only. No agents actually ran and no token or cost measurements were collected.
 

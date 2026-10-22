@@ -25,11 +25,11 @@ The user remains the authority on their preferences, professional claims, and ex
 
 ## In scope for the initial design
 
-Decision-context model; provenance; five logical roles; shared-context handoffs; disagreement handling; one pilot workflow; application and interview support; approval boundaries; outcome and cost measures; AI-DLC adoption planning.
+Decision-context model; provenance; the original nine distinct logical agents and their contracts; shared-context handoffs; disagreement handling; one pilot workflow; application, interview, and networking support; approval boundaries; outcome and cost measures; AI-DLC adoption planning. The orchestrator selects relevant agents per task without merging their responsibilities.
 
 ## Deferred
 
-Production agent execution, scheduling, email/job-board integrations, bulk application handling, multi-user hosting, cloud deployment, knowledge-graph infrastructure, and automated learning. Resume Strategy, ATS Analysis, Interview Preparation, and Networking can become separate roles when their value is demonstrated.
+Production agent execution, scheduling, email/job-board integrations, bulk application handling, multi-user hosting, cloud deployment, knowledge-graph infrastructure, and automated learning. All nine agents are included in the design baseline; their independent runtime execution is deferred with the rest of the implementation.
 
 ## Non-goals
 

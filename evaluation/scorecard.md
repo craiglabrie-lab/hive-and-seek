@@ -22,4 +22,4 @@ Use the same synthetic profile, listing set, evidence access, and review criteri
 
 ## Review decision
 
-At each pilot review, record what improved, what failed, unknowns, cost/effort, and the next bounded experiment. Add infrastructure or agents only when they address an observed limitation. Keep real job-search outcomes in the private [outcome tracker](../templates/outcome-tracker.csv).
+At each pilot review, record what improved, what failed, unknowns, cost/effort, and the next bounded experiment. Preserve the nine-agent baseline; any proposed architecture change needs evidence and project-owner approval. Add infrastructure only when it addresses an observed limitation. Keep real job-search outcomes in the private [outcome tracker](../templates/outcome-tracker.csv).
